@@ -29,6 +29,23 @@ This Weather Monitoring System is a Python-based application that fetches real-t
     ### Machine Learning Weather Prediction
     Trained machine learning models for 24-hour weather prediction are stored in the `models/` directory.
 
+### Weather Monitoring System
+
+To view the real-time weather dashboard:
+
+- Ensure Flask is installed:
+```pip install flask```
+- Ensure you're in the project root directory.
+- Run the Flask app:
+
+```
+python app.py
+```
+
+- Open a web browser and navigate to http://localhost:5000
+
+The dashboard displays the latest weather data for all monitored cities in an easy-to-read format.
+
 ## Prerequisites
 
 - Python 3.8+
@@ -164,6 +181,7 @@ To run the system tests:
 python test_system.py
 ```
 
+
 Individual test files for different components can be found in the `tests/` directory.
 
 ## Test Cases
@@ -182,6 +200,7 @@ Individual test files for different components can be found in the `tests/` dire
    - Defines and configures user thresholds for temperature conditions.
    - Simulates weather data exceeding or breaching the thresholds.
    - Verifies that alerts are triggered only when a threshold is violated.
+
 
 ## Troubleshooting
 
