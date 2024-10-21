@@ -2,23 +2,32 @@
 
 ## Overview
 
-This Weather Monitoring System is a Python-based application that fetches real-time weather data for multiple cities, processes and stores this data, generates alerts for extreme weather conditions, and creates visualizations of weather trends.
+This Weather Monitoring System is a Python-based application that fetches real-time weather data for multiple Indian metro cities, processes and stores this data, generates alerts for extreme weather conditions, and creates visualizations of weather trends.
 
-## Features
+## Core Features
 
-- Fetches weather data from OpenWeatherMap API(temperature data is received in Celsius)
+- Fetches weather data from OpenWeatherMap API for Delhi, Mumbai, Chennai, Bangalore, Kolkata, and Hyderabad
 - Processes and stores weather data in MongoDB
-- Generates daily weather summaries
-- Alerts for high and low temperature thresholds
-- Visualizes temperature trends and weather conditions
-- Logs system activities and errors
+- Generates daily weather summaries including:
+  - Average temperature
+  - Maximum temperature
+  - Minimum temperature
+  - Dominant weather condition
+- User-configurable alerts for temperature thresholds
+- Visualizes daily weather summaries, historical trends, and triggered alerts
 
-## New Features 
+## Additional Features
 
-- Extended weather parameters: Now includes humidity and wind speed in addition to temperature
+- Extended weather parameters: Includes humidity and wind speed in addition to temperature
 - 5-day weather forecast retrieval and processing
-- Enhanced daily summaries with additional weather parameters
-- Forecast summaries based on predicted conditions
+- Web dashboard for real-time weather visualization
+- Machine learning-based weather prediction for the next 24 hours
+
+    ### Web Dashboard
+    The web dashboard provides a user-friendly interface to view current weather data, forecasts, and predictions for all monitored cities.
+
+    ### Machine Learning Weather Prediction
+    Trained machine learning models for 24-hour weather prediction are stored in the `models/` directory.
 
 ## Prerequisites
 
@@ -57,17 +66,24 @@ This Weather Monitoring System is a Python-based application that fetches real-t
 
 5. Configure the application:
    - Open `config/config.yaml`
-   - Update the list of cities if needed
    - Adjust the MongoDB configuration if necessary
    - Modify alert thresholds and update intervals as desired
 
 ## Usage
 
-To run the Weather Monitoring System:
+To run the core Weather Monitoring System:
 
 ```
 python main.py
 ```
+
+To view the real-time weather dashboard (additional feature):
+
+```
+python app.py
+```
+
+Then open a web browser and navigate to `http://localhost:5000`
 
 For a short demonstration run:
 
@@ -75,45 +91,57 @@ For a short demonstration run:
 python run_demo.py
 ```
 
-The application will start fetching weather data at regular intervals, process it, store it in the database, check for alerts, and generate visualizations.
-
 ## Project Structure
 
 ```
 weather_monitoring_system/
-├── src/
-│   ├── api/
-│   │   └── weather_api.py
-│   ├── data_processing/
-│   │   ├── data_processor.py
-│   │   └── aggregator.py
-│   ├── database/
-│   │   └── db_handler.py
-│   ├── alerts/
-│   │   └── alert_manager.py
-│   ├── visualization/
-│   │   └── visualizer.py
-│   └── utils/
-│       ├── logger.py
-│       └── config_loader.py
-├── tests/
-│   └── test_system.py
 ├── config/
 │   └── config.yaml
 ├── logs/
-│   └── ...
+├── models/
+├── src/
+│   ├── alerts/
+│   │   ├── __init__.py
+│   │   └── alert_manager.py
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── weather_api.py
+│   ├── data_processing/
+│   │   ├── __init__.py
+│   │   ├── aggregator.py
+│   │   └── data_processor.py
+│   ├── database/
+│   │   ├── __init__.py
+│   │   └── db_handler.py
+│   ├── ml/
+│   │   └── weather_predictor.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── config_loader.py
+│   │   └── logger.py
+│   └── visualization/
+│       ├── __init__.py
+│       └── visualizer.py
+├── templates/
+│   └── dashboard.html
+├── tests/
+│   ├── test_aggregator.py
+│   ├── test_alert_manager.py
+│   ├── test_data_processor.py
+│   ├── test_db_handler.py
+│   └── test_weather_api.py
 ├── visualizations/
-│   └── ...
-├── requirements.txt
+├── app.py
 ├── main.py
+├── README.md
+├── requirements.txt
 ├── run_demo.py
-└── README.md
+└── test_system.py
 ```
 
 ## Configuration
 
 You can modify the following in `config/config.yaml`:
-- List of cities to monitor
 - Database settings
 - Alert thresholds (user-configurable)
 - Data processing and visualization update intervals
@@ -128,35 +156,32 @@ Logs are stored in the `logs/` directory. Check these for application activity a
 
 Weather trend visualizations are saved in the `visualizations/` directory.
 
+## Testing
 
-## Test Cases
-
-The `test_system.py` script covers the following test cases:
-
-1. System Setup: Verifies successful connection to the OpenWeatherMap API.
-2. Data Retrieval: Simulates API calls and checks correct data parsing.
-3. Daily Weather Summary: Verifies correct calculation of daily summaries.
-4. Alerting Thresholds: Tests alert triggering based on configured thresholds.
-
-To run the tests:
+To run the system tests:
 
 ```
 python test_system.py
 ```
-## Weather Monitoring System
 
-To view the real-time weather dashboard:
+Individual test files for different components can be found in the `tests/` directory.
 
-- Ensure you're in the project root directory.
-- Run the Flask app:
+## Test Cases
 
-```
-python app.py
-```
-
-- Open a web browser and navigate to http://localhost:5000
-
-The dashboard displays the latest weather data for all monitored cities in an easy-to-read format.
+1. System Setup:
+   - Verifies system starts successfully and connects to the OpenWeatherMap API using a valid API key.
+2. Data Retrieval:
+   - Simulates API calls at configurable intervals.
+   - Ensures the system retrieves weather data for the specified locations and parses the response correctly.
+3. Temperature Conversion:
+   - Tests conversion of temperature values from Kelvin to Celsius.
+4. Daily Weather Summary:
+   - Simulates a sequence of weather updates for several days.
+   - Verifies that daily summaries are calculated correctly, including average, maximum, minimum temperatures, and dominant weather condition.
+5. Alerting Thresholds:
+   - Defines and configures user thresholds for temperature conditions.
+   - Simulates weather data exceeding or breaching the thresholds.
+   - Verifies that alerts are triggered only when a threshold is violated.
 
 ## Troubleshooting
 
@@ -164,6 +189,6 @@ The dashboard displays the latest weather data for all monitored cities in an ea
 - For database connection issues, check your MongoDB service is running and the connection details in `config.yaml` are correct.
 - If visualizations aren't generating, ensure you have write permissions in the `visualizations/` directory.
 
-## Note 
+## Note
 
-This project is an assignment submission. The implementation focuses on demonstrating understanding of system design, API integration, data processing, and visualization techniques. 
+This project is an assignment submission. The implementation focuses on demonstrating understanding of real-time data processing, API integration, data aggregation, alerting systems, and visualization techniques in a weather monitoring context. Additional features showcase further capabilities beyond the core requirements.

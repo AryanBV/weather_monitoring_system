@@ -58,6 +58,13 @@ class DBHandler:
             'city': city,
             'timestamp': {'$gte': start_time}
         }).sort('timestamp', 1))
+    
+    def get_historical_weather_data(self, city, days=30):
+        start_date = datetime.utcnow() - timedelta(days=days)
+        return list(self.weather_collection.find({
+            'city': city,
+            'timestamp': {'$gte': start_date}
+        }).sort('timestamp', 1))
 
     def close(self):
         self.client.close()
