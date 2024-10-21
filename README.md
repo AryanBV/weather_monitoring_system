@@ -24,7 +24,8 @@ This Weather Monitoring System is a Python-based application that fetches real-t
 
 To view the real-time weather dashboard:
 
-- Ensure Flask is installed: ```pip install flask```
+- Ensure Flask is installed:
+```pip install flask```
 - Ensure you're in the project root directory.
 - Run the Flask app:
 
