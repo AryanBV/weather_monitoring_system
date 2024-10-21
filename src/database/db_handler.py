@@ -7,6 +7,7 @@ class DBHandler:
         self.db = self.client[config['name']]
         self.weather_collection = self.db['weather_data']
         self.summary_collection = self.db['daily_summaries']
+        self.forecast_collection = self.db['forecast_data']
 
     def store_weather_data(self, data):
         for item in data:
@@ -20,6 +21,15 @@ class DBHandler:
                 upsert=True
             )
 
+    def store_forecast_summary(self, forecast_summaries):
+        for city, summaries in forecast_summaries.items():
+            for summary in summaries:
+                self.forecast_collection.update_one(
+                    {'city': city, 'date': summary['date']},
+                    {'$set': summary},
+                    upsert=True
+                )
+
     def get_recent_weather_data(self, city, limit=10):
         return list(self.weather_collection.find(
             {'city': city},
@@ -29,6 +39,12 @@ class DBHandler:
 
     def get_daily_summaries(self, city, start_date, end_date):
         return list(self.summary_collection.find({
+            'city': city,
+            'date': {'$gte': start_date, '$lte': end_date}
+        }))
+
+    def get_forecast_data(self, city, start_date, end_date):
+        return list(self.forecast_collection.find({
             'city': city,
             'date': {'$gte': start_date, '$lte': end_date}
         }))

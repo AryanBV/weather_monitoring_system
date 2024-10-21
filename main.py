@@ -1,4 +1,11 @@
+import os
+import sys
 import time
+
+# Add the project root directory to the Python path
+project_root = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(0, project_root)
+
 from src.api.weather_api import WeatherAPI
 from src.data_processing.data_processor import DataProcessor
 from src.database.db_handler import DBHandler
@@ -10,7 +17,6 @@ from src.utils.config_loader import load_config
 def main():
     config = load_config()
     
-    # Initialize components
     weather_api = WeatherAPI(config['api_key'])
     data_processor = DataProcessor()
     db_handler = DBHandler(config['database'])
@@ -23,30 +29,28 @@ def main():
         try:
             logger.info("Starting data update cycle")
             
-            # Fetch weather data
+            # Fetch current weather data
             raw_data = weather_api.get_weather_data(config['cities'])
-            
-            # Process data
             processed_data = data_processor.process(raw_data)
-            
-            # Store processed data
             db_handler.store_weather_data(processed_data)
             
-            # Generate daily summary
             daily_summary = data_processor.calculate_daily_summary(processed_data)
             db_handler.store_daily_summary(daily_summary)
             
-            # Check for alerts
+            # Fetch and process forecast data
+            forecast_data = weather_api.get_forecast_data(config['cities'])
+            processed_forecast = data_processor.process_forecast(forecast_data)
+            forecast_summary = data_processor.summarize_forecast(processed_forecast)
+            db_handler.store_forecast_summary(forecast_summary)
+            
             alerts = alert_manager.check_thresholds(processed_data)
             if alerts:
                 alert_manager.send_alerts(alerts)
             
-            # Update visualizations
-            visualizer.update_visualizations(daily_summary, alerts)
+            visualizer.update_visualizations(daily_summary, forecast_summary, alerts)
 
             logger.info(f"Data update completed at {time.strftime('%Y-%m-%d %H:%M:%S')}")
             
-            # Wait for the next update interval
             time.sleep(update_interval)
 
         except Exception as e:

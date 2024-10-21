@@ -13,6 +13,13 @@ This Weather Monitoring System is a Python-based application that fetches real-t
 - Visualizes temperature trends and weather conditions
 - Logs system activities and errors
 
+## New Features 
+
+- Extended weather parameters: Now includes humidity and wind speed in addition to temperature
+- 5-day weather forecast retrieval and processing
+- Enhanced daily summaries with additional weather parameters
+- Forecast summaries based on predicted conditions
+
 ## Prerequisites
 
 - Python 3.8+

@@ -2,14 +2,13 @@ import logging
 import os
 from datetime import datetime
 
-def setup_logger():
+def setup_logger(name='weather_monitoring'):
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.DEBUG)
+
     # Create logs directory if it doesn't exist
     if not os.path.exists('logs'):
         os.makedirs('logs')
-
-    # Create a logger
-    logger = logging.getLogger('weather_monitoring')
-    logger.setLevel(logging.DEBUG)
 
     # Create a file handler
     log_file = f"logs/weather_monitoring_{datetime.now().strftime('%Y%m%d')}.log"

@@ -93,3 +93,273 @@
 2024-10-21 11:45:32,643 - weather_monitoring - INFO - Test 5: Alerting Thresholds
 2024-10-21 11:45:32,643 - weather_monitoring - INFO - Testing Visualizer
 2024-10-21 11:45:33,192 - weather_monitoring - INFO - All tests completed successfully!
+2024-10-21 12:14:53,380 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 12:14:53,380 - weather_monitoring - INFO - Test 2: Data Retrieval
+2024-10-21 12:14:53,635 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 12:14:54,794 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 12:14:56,033 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 12:14:57,189 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 12:14:58,356 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 12:14:59,584 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 12:15:00,585 - weather_monitoring - INFO - Test 3: Temperature Conversion (Skipped - data already in Celsius)
+2024-10-21 12:15:00,585 - weather_monitoring - INFO - Test 4: Daily Weather Summary
+2024-10-21 12:15:00,586 - weather_monitoring - INFO - Test 5: Alerting Thresholds
+2024-10-21 12:15:00,586 - weather_monitoring - INFO - Testing Visualizer
+2024-10-21 12:15:01,081 - weather_monitoring - INFO - All tests completed successfully!
+2024-10-21 12:20:23,204 - weather_monitoring - INFO - Starting Weather Monitoring System demo for 5 minutes
+2024-10-21 12:25:23,214 - weather_monitoring - ERROR - Errors occurred during demo run: Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\Delta\weather_monitoring_system\main.py", line 8, in <module>
+    from src.utils.config_loader import load_config
+ModuleNotFoundError: No module named 'src.utils.config_loader'
+
+2024-10-21 12:31:21,754 - weather_monitoring - INFO - Starting Weather Monitoring System demo for 5 minutes
+2024-10-21 12:36:21,766 - weather_monitoring - ERROR - Errors occurred during demo run: Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\Delta\weather_monitoring_system\main.py", line 8, in <module>
+    from src.utils.config_loader import load_config
+ModuleNotFoundError: No module named 'src.utils.config_loader'
+
+2024-10-21 12:41:39,724 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 12:41:39,724 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 12:41:39,964 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 12:41:41,133 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 12:41:42,328 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 12:41:43,490 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 12:41:44,753 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 12:41:45,969 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 12:41:46,971 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 12:41:47,267 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 12:54:01,188 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 12:54:01,188 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 12:54:01,821 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 12:54:02,996 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 12:54:04,191 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 12:54:05,363 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 12:54:06,612 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 12:54:07,873 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 12:54:08,874 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 12:54:09,180 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 12:54:10,484 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 12:54:12,337 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 17:56:27,282 - weather_monitoring - INFO - Starting Weather Monitoring System demo for 5 minutes
+2024-10-21 18:01:27,301 - weather_monitoring - ERROR - Errors occurred during demo run: Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\Delta\weather_monitoring_system\main.py", line 8, in <module>
+    from src.utils.config_loader import load_config
+ModuleNotFoundError: No module named 'src.utils.config_loader'
+
+2024-10-21 18:05:10,820 - weather_monitoring - INFO - Starting Weather Monitoring System demo for 5 minutes
+2024-10-21 18:05:11,569 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 18:05:11,877 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:05:13,339 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:05:14,496 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:05:15,663 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:05:16,882 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:05:18,105 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:05:19,402 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:05:20,697 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:05:21,993 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:05:23,299 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:05:24,627 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:05:25,908 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:05:26,912 - weather_monitoring - ERROR - Error in main loop: cannot encode object: datetime.date(2024, 10, 21), of type: <class 'datetime.date'>
+2024-10-21 18:06:26,913 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 18:06:27,162 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:06:28,343 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:06:29,524 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:06:30,707 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:06:31,924 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:06:33,162 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:06:34,479 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:06:35,769 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:06:37,038 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:06:38,337 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:06:39,647 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:06:40,938 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:06:41,940 - weather_monitoring - ERROR - Error in main loop: cannot encode object: datetime.date(2024, 10, 21), of type: <class 'datetime.date'>
+2024-10-21 18:07:41,941 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 18:07:42,164 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:07:43,392 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:07:44,620 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:07:45,841 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:07:47,082 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:07:48,323 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:07:49,620 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:07:50,898 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:07:52,180 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:10:10,849 - weather_monitoring - ERROR - Errors occurred during demo run: 2024-10-21 18:05:11,569 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 18:05:11,877 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:05:13,339 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:05:14,496 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:05:15,663 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:05:16,882 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:05:18,105 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:05:19,402 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:05:20,697 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:05:21,993 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:05:23,299 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:05:24,627 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:05:25,908 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:05:26,912 - weather_monitoring - ERROR - Error in main loop: cannot encode object: datetime.date(2024, 10, 21), of type: <class 'datetime.date'>
+2024-10-21 18:06:26,913 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 18:06:27,162 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:06:28,343 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:06:29,524 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:06:30,707 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:06:31,924 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:06:33,162 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:06:34,479 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:06:35,769 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:06:37,038 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:06:38,337 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:06:39,647 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:06:40,938 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:06:41,940 - weather_monitoring - ERROR - Error in main loop: cannot encode object: datetime.date(2024, 10, 21), of type: <class 'datetime.date'>
+2024-10-21 18:07:41,941 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 18:07:42,164 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:07:43,392 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:07:44,620 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:07:45,841 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:07:47,082 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:07:48,323 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:07:49,620 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:07:50,898 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:07:52,180 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+
+2024-10-21 18:11:49,108 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 18:11:49,109 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 18:11:49,326 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:11:50,454 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:11:52,894 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:11:54,095 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:11:55,271 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:11:56,451 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:11:57,453 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 18:12:03,606 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:12:04,852 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:12:06,109 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:12:07,346 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:12:08,606 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:12:09,870 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:12:10,872 - weather_monitoring - INFO - Test 4: Data Processing
+2024-10-21 18:12:10,873 - weather_monitoring - INFO - Test 5: Daily Weather Summary
+2024-10-21 18:12:10,874 - weather_monitoring - INFO - Test 6: Forecast Summary
+2024-10-21 18:12:10,874 - weather_monitoring - INFO - Test 7: Database Operations
+2024-10-21 18:15:43,113 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 18:15:43,115 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 18:15:43,374 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:15:44,509 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:15:45,652 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:15:46,853 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:15:48,094 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:15:49,334 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:15:50,336 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 18:15:50,544 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:15:51,756 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:15:52,990 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:15:54,391 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:15:55,667 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:15:56,946 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:15:57,948 - weather_monitoring - INFO - Test 4: Data Processing
+2024-10-21 18:15:57,949 - weather_monitoring - INFO - Test 5: Daily Weather Summary
+2024-10-21 18:15:57,950 - weather_monitoring - INFO - Test 6: Forecast Summary
+2024-10-21 18:15:57,950 - weather_monitoring - INFO - Test 7: Database Operations
+2024-10-21 18:15:58,008 - weather_monitoring - INFO - Test 8: Alerting Thresholds
+2024-10-21 18:15:58,009 - weather_monitoring - INFO - Test 9: Visualization
+2024-10-21 18:15:58,928 - weather_monitoring - INFO - All tests completed successfully!
+2024-10-21 18:16:05,284 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 18:16:05,285 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 18:16:05,491 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:16:06,696 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:16:07,891 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:16:09,071 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:16:10,261 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:16:11,474 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:16:12,476 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 18:16:12,746 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:16:14,026 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:16:15,292 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:16:16,569 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:16:17,825 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:16:19,107 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:16:20,108 - weather_monitoring - INFO - Test 4: Data Processing
+2024-10-21 18:16:20,110 - weather_monitoring - INFO - Test 5: Daily Weather Summary
+2024-10-21 18:16:20,110 - weather_monitoring - INFO - Test 6: Forecast Summary
+2024-10-21 18:16:20,111 - weather_monitoring - INFO - Test 7: Database Operations
+2024-10-21 18:16:20,160 - weather_monitoring - INFO - Test 8: Alerting Thresholds
+2024-10-21 18:16:20,161 - weather_monitoring - INFO - Test 9: Visualization
+2024-10-21 18:16:20,993 - weather_monitoring - INFO - All tests completed successfully!
+2024-10-21 18:16:49,837 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 18:16:49,838 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 18:16:50,056 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:16:51,253 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:16:52,433 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:16:53,611 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:16:54,834 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:16:56,055 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:16:57,056 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 18:16:57,305 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:16:58,565 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:16:59,845 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:17:01,131 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:17:02,389 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:17:04,510 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:17:05,512 - weather_monitoring - INFO - Test 4: Data Processing
+2024-10-21 18:17:05,513 - weather_monitoring - INFO - Test 5: Daily Weather Summary
+2024-10-21 18:17:05,514 - weather_monitoring - INFO - Test 6: Forecast Summary
+2024-10-21 18:17:05,515 - weather_monitoring - INFO - Test 7: Database Operations
+2024-10-21 18:17:05,566 - weather_monitoring - INFO - Test 8: Alerting Thresholds
+2024-10-21 18:17:05,566 - weather_monitoring - INFO - Test 9: Visualization
+2024-10-21 18:17:06,376 - weather_monitoring - INFO - All tests completed successfully!
+2024-10-21 18:27:43,944 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 18:27:43,944 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 18:27:44,190 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:27:45,332 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:27:46,493 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:27:47,649 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:27:48,832 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:27:54,828 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:27:55,830 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 18:27:56,104 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:27:57,364 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:27:58,632 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:27:59,903 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:28:01,164 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:28:02,442 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:28:03,444 - weather_monitoring - INFO - Test 4: Data Processing
+2024-10-21 18:28:03,445 - weather_monitoring - INFO - Test 5: Daily Weather Summary
+2024-10-21 18:28:03,446 - weather_monitoring - INFO - Test 6: Forecast Summary
+2024-10-21 18:28:03,447 - weather_monitoring - INFO - Test 7: Database Operations
+2024-10-21 18:28:03,493 - weather_monitoring - INFO - Test 8: Alerting Thresholds
+2024-10-21 18:28:03,494 - weather_monitoring - INFO - Test 9: Visualization
+2024-10-21 18:28:04,332 - weather_monitoring - INFO - All tests completed successfully!
+2024-10-21 18:34:19,445 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 18:34:19,445 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 18:34:19,680 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:34:20,808 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:34:21,945 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:34:23,096 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:34:24,229 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:34:25,436 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:34:26,438 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 18:34:26,681 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:37:16,482 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 18:37:16,484 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 18:37:16,708 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 18:37:17,873 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 18:37:21,298 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 18:37:22,490 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 18:37:23,706 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 18:37:24,910 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 18:37:25,912 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 18:37:26,161 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 18:37:27,402 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 18:37:28,663 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 18:37:36,601 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 18:37:37,840 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 18:37:39,121 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 18:37:40,123 - weather_monitoring - INFO - Test 4: Data Processing
+2024-10-21 18:37:40,125 - weather_monitoring - INFO - Test 5: Daily Weather Summary
+2024-10-21 18:37:40,125 - weather_monitoring - INFO - Test 6: Forecast Summary
+2024-10-21 18:37:40,126 - weather_monitoring - INFO - Test 7: Database Operations
+2024-10-21 18:37:40,163 - weather_monitoring - INFO - Test 8: Alerting Thresholds
+2024-10-21 18:37:40,164 - weather_monitoring - INFO - Test 9: Visualization
+2024-10-21 18:37:40,992 - weather_monitoring - INFO - All tests completed successfully!
