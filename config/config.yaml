@@ -1,0 +1,32 @@
+# OpenWeatherMap API configuration
+api_key: "9e1d01b2f6a9884369a867fd38b474f7"
+
+# Cities to monitor
+cities:
+  - Delhi
+  - Mumbai
+  - Chennai
+  - Bangalore
+  - Kolkata
+  - Hyderabad
+
+# Database configuration
+database:
+  type: "mongodb"
+  host: "localhost"
+  port: 27017
+  name: "weather_monitoring"
+
+# Alert thresholds
+alert_thresholds:
+  high_temperature: 35  # in Celsius
+  low_temperature: 10   # in Celsius
+  consecutive_updates: 2  # Number of consecutive updates to trigger an alert
+
+# Data processing configuration
+data_processing:
+  update_interval: 300  # in seconds (5 minutes)
+
+# Visualization configuration
+visualization:
+  update_interval: 3600  # in seconds (1 hour)

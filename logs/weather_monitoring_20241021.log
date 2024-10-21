@@ -1,0 +1,95 @@
+2024-10-21 11:04:20,392 - weather_monitoring - INFO - Testing WeatherAPI...
+2024-10-21 11:04:20,653 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 11:04:21,819 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 11:04:22,999 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 11:04:24,185 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 11:04:25,344 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 11:04:26,557 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 11:04:27,559 - weather_monitoring - INFO - Testing DataProcessor...
+2024-10-21 11:04:27,559 - weather_monitoring - INFO - Testing DBHandler...
+2024-10-21 11:07:58,734 - weather_monitoring - INFO - Testing WeatherAPI...
+2024-10-21 11:07:58,923 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 11:08:00,096 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 11:08:01,256 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 11:08:02,612 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 11:08:03,817 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 11:08:05,035 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 11:08:06,036 - weather_monitoring - INFO - Testing DataProcessor...
+2024-10-21 11:08:06,036 - weather_monitoring - INFO - Testing DBHandler...
+2024-10-21 11:08:06,072 - weather_monitoring - INFO - Testing AlertManager...
+2024-10-21 11:08:06,072 - weather_monitoring - INFO - Testing Visualizer...
+2024-10-21 11:08:07,033 - weather_monitoring - INFO - All tests completed successfully!
+2024-10-21 11:15:00,297 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 11:15:00,549 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 11:15:01,813 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 11:15:03,015 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 11:15:04,234 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 11:15:05,452 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 11:15:06,698 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 11:15:08,066 - weather_monitoring - INFO - Data update completed at 2024-10-21 11:15:08
+2024-10-21 11:19:58,678 - weather_monitoring - INFO - Starting Weather Monitoring System demo for 5 minutes
+2024-10-21 11:19:59,288 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 11:20:02,631 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 11:20:04,247 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 11:20:05,451 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 11:20:06,687 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 11:20:08,247 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 11:20:10,166 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 11:20:11,546 - weather_monitoring - INFO - Data update completed at 2024-10-21 11:20:11
+2024-10-21 11:24:58,690 - weather_monitoring - INFO - Demo completed. Check logs and visualizations for results.
+2024-10-21 11:35:37,014 - weather_monitoring - INFO - Starting Weather Monitoring System demo for 5 minutes
+2024-10-21 11:35:37,662 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 11:35:37,947 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 11:35:39,102 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 11:35:40,267 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 11:35:41,425 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 11:35:42,643 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 11:35:43,866 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 11:35:44,883 - weather_monitoring - ERROR - Error in main loop: Visualizer.update_visualizations() missing 1 required positional argument: 'alerts'
+2024-10-21 11:36:44,884 - weather_monitoring - INFO - Starting data update cycle
+2024-10-21 11:36:45,123 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 11:36:46,338 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 11:36:47,542 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 11:36:48,768 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 11:36:49,983 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 11:36:51,197 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 11:36:52,202 - weather_monitoring - ERROR - Error in main loop: Visualizer.update_visualizations() missing 1 required positional argument: 'alerts'
+2024-10-21 11:37:52,923 - weather_monitoring - INFO - Starting Weather Monitoring System demo for 5 minutes
+2024-10-21 11:41:02,303 - weather_monitoring - INFO - Starting Weather Monitoring System demo for 5 minutes
+2024-10-21 11:41:25,960 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 11:41:25,960 - weather_monitoring - INFO - Test 2: Data Retrieval
+2024-10-21 11:41:26,285 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 11:41:27,474 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 11:41:28,642 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 11:41:29,840 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 11:41:31,064 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 11:41:32,274 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 11:41:33,275 - weather_monitoring - INFO - Test 3: Temperature Conversion (Skipped - data already in Celsius)
+2024-10-21 11:41:33,276 - weather_monitoring - INFO - Test 4: Daily Weather Summary
+2024-10-21 11:41:33,276 - weather_monitoring - INFO - Test 5: Alerting Thresholds
+2024-10-21 11:43:20,039 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 11:43:20,040 - weather_monitoring - INFO - Test 2: Data Retrieval
+2024-10-21 11:43:20,302 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 11:43:21,486 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 11:43:22,658 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 11:43:23,822 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 11:43:25,040 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 11:43:26,266 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 11:43:27,267 - weather_monitoring - INFO - Test 3: Temperature Conversion (Skipped - data already in Celsius)
+2024-10-21 11:43:27,268 - weather_monitoring - INFO - Test 4: Daily Weather Summary
+2024-10-21 11:43:27,268 - weather_monitoring - INFO - Test 5: Alerting Thresholds
+2024-10-21 11:43:27,269 - weather_monitoring - INFO - Testing Visualizer
+2024-10-21 11:43:27,788 - weather_monitoring - INFO - All tests completed successfully!
+2024-10-21 11:45:23,072 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 11:45:23,073 - weather_monitoring - INFO - Test 2: Data Retrieval
+2024-10-21 11:45:23,341 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 11:45:26,769 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 11:45:27,981 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 11:45:29,192 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 11:45:30,413 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 11:45:31,641 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 11:45:32,642 - weather_monitoring - INFO - Test 3: Temperature Conversion (Skipped - data already in Celsius)
+2024-10-21 11:45:32,642 - weather_monitoring - INFO - Test 4: Daily Weather Summary
+2024-10-21 11:45:32,643 - weather_monitoring - INFO - Test 5: Alerting Thresholds
+2024-10-21 11:45:32,643 - weather_monitoring - INFO - Testing Visualizer
+2024-10-21 11:45:33,192 - weather_monitoring - INFO - All tests completed successfully!
