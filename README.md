@@ -20,6 +20,21 @@ This Weather Monitoring System is a Python-based application that fetches real-t
 - Enhanced daily summaries with additional weather parameters
 - Forecast summaries based on predicted conditions
 
+### Weather Monitoring System
+
+To view the real-time weather dashboard:
+
+- Ensure you're in the project root directory.
+- Run the Flask app:
+
+```
+python app.py
+```
+
+- Open a web browser and navigate to http://localhost:5000
+
+The dashboard displays the latest weather data for all monitored cities in an easy-to-read format.
+
 ## Prerequisites
 
 - Python 3.8+
@@ -143,20 +158,6 @@ To run the tests:
 ```
 python test_system.py
 ```
-## Weather Monitoring System
-
-To view the real-time weather dashboard:
-
-- Ensure you're in the project root directory.
-- Run the Flask app:
-
-```
-python app.py
-```
-
-- Open a web browser and navigate to http://localhost:5000
-
-The dashboard displays the latest weather data for all monitored cities in an easy-to-read format.
 
 ## Troubleshooting
 
