@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f0f0f0; }
+        h1 { color: #333; text-align: center; }
+        .city-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .city-card { background-color: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .city-name { color: #0066cc; margin-top: 0; }
+        .weather-icon { font-size: 48px; margin: 10px 0; }
+        .weather-details { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Weather Monitoring Dashboard</h1>
+    <div class="city-grid">
+    {% for city, data in latest_data.items() %}
+        <div class="city-card">
+            <h2 class="city-name">{{ city }}</h2>
+            <div class="weather-icon">
+                {% if 'Clear' in data.weather_condition %}☀️
+                {% elif 'Cloud' in data.weather_condition %}☁️
+                {% elif 'Rain' in data.weather_condition %}🌧️
+                {% elif 'Snow' in data.weather_condition %}❄️
+                {% else %}🌤️
+                {% endif %}
+            </div>
+            <p class="weather-details"><strong>Temperature:</strong> {{ "%.1f"|format(data.temperature) }}°C</p>
+            <p class="weather-details"><strong>Humidity:</strong> {{ "%.1f"|format(data.humidity) }}%</p>
+            <p class="weather-details"><strong>Wind Speed:</strong> {{ "%.1f"|format(data.wind_speed) }} m/s</p>
+            <p class="weather-details"><strong>Condition:</strong> {{ data.weather_condition }}</p>
+            <p class="weather-details"><strong>Last Updated:</strong> {{ data.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>

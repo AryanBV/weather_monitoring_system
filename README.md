@@ -143,6 +143,20 @@ To run the tests:
 ```
 python test_system.py
 ```
+## Weather Monitoring System
+
+To view the real-time weather dashboard:
+
+- Ensure you're in the project root directory.
+- Run the Flask app:
+
+```
+python app.py
+```
+
+- Open a web browser and navigate to http://localhost:5000
+
+The dashboard displays the latest weather data for all monitored cities in an easy-to-read format.
 
 ## Troubleshooting
 
