@@ -26,18 +26,25 @@ def dashboard():
                 predictor.load_model()
             except FileNotFoundError:
                 historical_data = db_handler.get_historical_weather_data(city)
-                predictor.train_model(historical_data)
-            
+                if historical_data:
+                    predictor.train_model(historical_data)
+                else:
+                    continue  # Skip prediction if no historical data
+
             next_day = datetime.now() + timedelta(days=1)
-            prediction = predictor.predict(
-                next_day.hour,
-                next_day.weekday(),
-                next_day.month,
-                latest_data[city]['humidity'],
-                latest_data[city]['wind_speed'],
-                latest_data[city]['weather_condition']
-            )
-            predictions[city] = round(prediction, 1)
+            try:
+                prediction = predictor.predict(
+                    next_day.hour,
+                    next_day.weekday(),
+                    next_day.month,
+                    latest_data[city]['humidity'],
+                    latest_data[city]['wind_speed'],
+                    latest_data[city]['weather_condition']
+                )
+                predictions[city] = round(prediction, 1)
+            except ValueError as e:
+                print(f"Prediction error for {city}: {str(e)}")
+                predictions[city] = "N/A"
     
     return render_template('dashboard.html', latest_data=latest_data, predictions=predictions)
 

@@ -23,11 +23,19 @@ This Weather Monitoring System is a Python-based application that fetches real-t
 - Web dashboard for real-time weather visualization
 - Machine learning-based weather prediction for the next 24 hours
 
-    ### Web Dashboard
+   ### Web Dashboard
     The web dashboard provides a user-friendly interface to view current weather data, forecasts, and predictions for all monitored cities.
 
-    ### Machine Learning Weather Prediction
+   ### Machine Learning Weather Prediction
     Trained machine learning models for 24-hour weather prediction are stored in the `models/` directory.
+
+   ### Hosted Dashboard
+
+   You can view a static version of the weather dashboard online:
+
+   https://aryanbv.github.io/weather_monitoring_system/
+
+   Note: This static version is updated periodically and may not reflect real-time data. For the most up-to-date information, please run the application locally as described in the Usage section.
 
 ### Weather Monitoring System
 
