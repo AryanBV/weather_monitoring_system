@@ -363,3 +363,25 @@ ModuleNotFoundError: No module named 'src.utils.config_loader'
 2024-10-21 18:37:40,163 - weather_monitoring - INFO - Test 8: Alerting Thresholds
 2024-10-21 18:37:40,164 - weather_monitoring - INFO - Test 9: Visualization
 2024-10-21 18:37:40,992 - weather_monitoring - INFO - All tests completed successfully!
+2024-10-21 23:00:55,001 - weather_monitoring - INFO - Test 1: System Setup
+2024-10-21 23:00:55,002 - weather_monitoring - INFO - Test 2: Current Weather Data Retrieval
+2024-10-21 23:00:58,256 - weather_monitoring - INFO - Successfully retrieved weather data for Delhi
+2024-10-21 23:00:59,407 - weather_monitoring - INFO - Successfully retrieved weather data for Mumbai
+2024-10-21 23:01:00,586 - weather_monitoring - INFO - Successfully retrieved weather data for Chennai
+2024-10-21 23:01:01,726 - weather_monitoring - INFO - Successfully retrieved weather data for Bangalore
+2024-10-21 23:01:03,261 - weather_monitoring - INFO - Successfully retrieved weather data for Kolkata
+2024-10-21 23:01:04,446 - weather_monitoring - INFO - Successfully retrieved weather data for Hyderabad
+2024-10-21 23:01:05,447 - weather_monitoring - INFO - Test 3: Forecast Data Retrieval
+2024-10-21 23:01:05,718 - weather_monitoring - INFO - Successfully retrieved forecast data for Delhi
+2024-10-21 23:01:06,981 - weather_monitoring - INFO - Successfully retrieved forecast data for Mumbai
+2024-10-21 23:01:08,282 - weather_monitoring - INFO - Successfully retrieved forecast data for Chennai
+2024-10-21 23:01:09,582 - weather_monitoring - INFO - Successfully retrieved forecast data for Bangalore
+2024-10-21 23:01:10,858 - weather_monitoring - INFO - Successfully retrieved forecast data for Kolkata
+2024-10-21 23:01:12,141 - weather_monitoring - INFO - Successfully retrieved forecast data for Hyderabad
+2024-10-21 23:01:13,143 - weather_monitoring - INFO - Test 4: Data Processing
+2024-10-21 23:01:13,144 - weather_monitoring - INFO - Test 5: Daily Weather Summary
+2024-10-21 23:01:13,145 - weather_monitoring - INFO - Test 6: Forecast Summary
+2024-10-21 23:01:13,145 - weather_monitoring - INFO - Test 7: Database Operations
+2024-10-21 23:01:13,197 - weather_monitoring - INFO - Test 8: Alerting Thresholds
+2024-10-21 23:01:13,197 - weather_monitoring - INFO - Test 9: Visualization
+2024-10-21 23:01:14,137 - weather_monitoring - INFO - All tests completed successfully!
