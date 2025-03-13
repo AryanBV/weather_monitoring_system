@@ -173,6 +173,37 @@ You can modify the following in `config/config.yaml`:
 
 The OpenWeatherMap API key should be set as an environment variable for security reasons.
 
+## Docker Support
+
+This application can be run using Docker and Docker Compose.
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Running with Docker Compose
+
+1. Create a `.env` file based on `.env.example`:
+
+2. Edit the `.env` file to include your OpenWeatherMap API key and other settings.
+
+3. Build and start the containers:
+
+4. View the web dashboard at http://localhost:5000
+
+5. To stop the containers:
+
+### Running Individual Components
+
+You can also run individual containers:
+
+- To run just the MongoDB database:
+
+- To run just the weather monitoring service:
+
+- To run just the web dashboard:
+
 ## Logs
 
 Logs are stored in the `logs/` directory. Check these for application activity and any errors.

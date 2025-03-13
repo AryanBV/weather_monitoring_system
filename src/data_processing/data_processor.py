@@ -1,8 +1,9 @@
 from datetime import datetime
 from collections import defaultdict
+from typing import List, Dict, Any, Tuple, DefaultDict
 
 class DataProcessor:
-    def process(self, raw_data):
+    def process(self, raw_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         processed_data = []
         for item in raw_data:
             processed_item = {
@@ -17,8 +18,8 @@ class DataProcessor:
             processed_data.append(processed_item)
         return processed_data
 
-    def calculate_daily_summary(self, data):
-        summaries = {}
+    def calculate_daily_summary(self, data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        summaries: Dict[Tuple[str, datetime.date], Dict[str, Any]] = {}
         for item in data:
             date = item['timestamp'].date()
             city = item['city']
@@ -28,9 +29,9 @@ class DataProcessor:
                 summaries[key] = {
                     'city': city,
                     'date': datetime.combine(date, datetime.min.time()),  # Convert to datetime
-                    'temp_sum': 0,
-                    'humidity_sum': 0,
-                    'wind_speed_sum': 0,
+                    'temp_sum': 0.0,
+                    'humidity_sum': 0.0,
+                    'wind_speed_sum': 0.0,
                     'temp_count': 0,
                     'max_temp': float('-inf'),
                     'min_temp': float('inf'),
@@ -48,7 +49,7 @@ class DataProcessor:
             condition = item['weather_condition']
             summary['conditions'][condition] = summary['conditions'].get(condition, 0) + 1
 
-        result = []
+        result: List[Dict[str, Any]] = []
         for key, summary in summaries.items():
             avg_temp = summary['temp_sum'] / summary['temp_count']
             avg_humidity = summary['humidity_sum'] / summary['temp_count']
@@ -68,8 +69,8 @@ class DataProcessor:
 
         return result
 
-    def process_forecast(self, forecast_data):
-        processed_forecast = defaultdict(list)
+    def process_forecast(self, forecast_data: Dict[str, List[Dict[str, Any]]]) -> DefaultDict[str, List[Dict[str, Any]]]:
+        processed_forecast: DefaultDict[str, List[Dict[str, Any]]] = defaultdict(list)
         for city, forecasts in forecast_data.items():
             for forecast in forecasts:
                 processed_forecast[city].append({
@@ -81,10 +82,12 @@ class DataProcessor:
                 })
         return processed_forecast
 
-    def summarize_forecast(self, processed_forecast):
-        summary = {}
+    def summarize_forecast(self, processed_forecast: DefaultDict[str, List[Dict[str, Any]]]) -> Dict[str, List[Dict[str, Any]]]:
+        summary: Dict[str, List[Dict[str, Any]]] = {}
         for city, forecasts in processed_forecast.items():
-            city_summary = defaultdict(lambda: {'temps': [], 'humidity': [], 'wind_speed': [], 'conditions': []})
+            city_summary: DefaultDict[datetime.date, Dict[str, Any]] = defaultdict(
+                lambda: {'temps': [], 'humidity': [], 'wind_speed': [], 'conditions': []})
+            
             for forecast in forecasts:
                 date = forecast['timestamp'].date()
                 city_summary[date]['temps'].append(forecast['temperature'])

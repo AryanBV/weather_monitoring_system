@@ -1,5 +1,5 @@
 # OpenWeatherMap API configuration
-api_key: "9e1d01b2f6a9884369a867fd38b474f7"
+api_key: ""  # Set via environment variable OPENWEATHERMAP_API_KEY
 
 # Cities to monitor
 cities:

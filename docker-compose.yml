@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:5.0
+    container_name: weather-monitoring-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+
+  weather-monitoring:
+    build: .
+    container_name: weather-monitoring-app
+    depends_on:
+      - mongodb
+    environment:
+      - OPENWEATHERMAP_API_KEY=${OPENWEATHERMAP_API_KEY}
+      - ENABLE_EMAIL_ALERTS=${ENABLE_EMAIL_ALERTS:-false}
+      - SMTP_SERVER=${SMTP_SERVER:-smtp.gmail.com}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - ALERT_FROM_EMAIL=${ALERT_FROM_EMAIL}
+      - ALERT_TO_EMAILS=${ALERT_TO_EMAILS}
+    volumes:
+      - ./logs:/app/logs
+      - ./visualizations:/app/visualizations
+      - ./models:/app/models
+    restart: unless-stopped
+
+  web-dashboard:
+    build: .
+    container_name: weather-monitoring-web
+    depends_on:
+      - mongodb
+    command: python app.py
+    ports:
+      - "5000:5000"
+    environment:
+      - OPENWEATHERMAP_API_KEY=${OPENWEATHERMAP_API_KEY}
+      - FLASK_ENV=production
+      - FLASK_APP=app.py
+    volumes:
+      - ./models:/app/models
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:

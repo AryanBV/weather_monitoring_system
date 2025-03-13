@@ -17,36 +17,50 @@ def dashboard():
     cities = db_handler.get_cities()
     latest_data = {}
     predictions = {}
-    for city in cities:
-        city_data = db_handler.get_recent_weather_data(city, limit=1)
-        if city_data:
-            latest_data[city] = city_data[0]
-            predictor = WeatherPredictor(city)
-            try:
-                predictor.load_model()
-            except FileNotFoundError:
-                historical_data = db_handler.get_historical_weather_data(city)
-                if historical_data:
-                    predictor.train_model(historical_data)
-                else:
-                    continue  # Skip prediction if no historical data
-
-            next_day = datetime.now() + timedelta(days=1)
-            try:
-                prediction = predictor.predict(
-                    next_day.hour,
-                    next_day.weekday(),
-                    next_day.month,
-                    latest_data[city]['humidity'],
-                    latest_data[city]['wind_speed'],
-                    latest_data[city]['weather_condition']
-                )
-                predictions[city] = round(prediction, 1)
-            except ValueError as e:
-                print(f"Prediction error for {city}: {str(e)}")
-                predictions[city] = "N/A"
+    prediction_errors = {}
     
-    return render_template('dashboard.html', latest_data=latest_data, predictions=predictions)
+    for city in cities:
+        try:
+            city_data = db_handler.get_recent_weather_data(city, limit=1)
+            if city_data:
+                latest_data[city] = city_data[0]
+                predictor = WeatherPredictor(city)
+                
+                try:
+                    predictor.load_model()
+                except FileNotFoundError:
+                    logger.info(f"No model found for {city}, attempting to train one")
+                    historical_data = db_handler.get_historical_weather_data(city)
+                    if historical_data and len(historical_data) > 10:  # Need sufficient data to train
+                        predictor.train_model(historical_data)
+                    else:
+                        prediction_errors[city] = "Insufficient historical data for training"
+                        continue
+
+                next_day = datetime.now() + timedelta(days=1)
+                try:
+                    prediction = predictor.predict(
+                        next_day.hour,
+                        next_day.weekday(),
+                        next_day.month,
+                        latest_data[city]['humidity'],
+                        latest_data[city]['wind_speed'],
+                        latest_data[city]['weather_condition']
+                    )
+                    predictions[city] = round(prediction, 1)
+                except ValueError as e:
+                    error_msg = f"Prediction error for {city}: {str(e)}"
+                    logger.error(error_msg)
+                    prediction_errors[city] = error_msg
+                    predictions[city] = "N/A"
+        except Exception as e:
+            logger.error(f"Error processing data for {city}: {str(e)}")
+            prediction_errors[city] = f"Error: {str(e)}"
+    
+    return render_template('dashboard.html', 
+                          latest_data=latest_data, 
+                          predictions=predictions, 
+                          prediction_errors=prediction_errors)
 
 if __name__ == '__main__':
     app.run(debug=True)

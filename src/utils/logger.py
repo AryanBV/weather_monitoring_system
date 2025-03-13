@@ -1,18 +1,27 @@
 import logging
 import os
 from datetime import datetime
+from logging.handlers import RotatingFileHandler
 
 def setup_logger(name='weather_monitoring'):
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
+    
+    # Clear any existing handlers to avoid duplicate logs
+    if logger.handlers:
+        logger.handlers = []
 
     # Create logs directory if it doesn't exist
     if not os.path.exists('logs'):
         os.makedirs('logs')
 
-    # Create a file handler
+    # Create a rotating file handler (10 MB per file, max 5 files)
     log_file = f"logs/weather_monitoring_{datetime.now().strftime('%Y%m%d')}.log"
-    file_handler = logging.FileHandler(log_file)
+    file_handler = RotatingFileHandler(
+        log_file, 
+        maxBytes=10*1024*1024,  # 10 MB
+        backupCount=5
+    )
     file_handler.setLevel(logging.DEBUG)
 
     # Create a console handler
