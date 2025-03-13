@@ -135,9 +135,19 @@ class WeatherAPI:
         logger.info("API cache cleared")
 
     def get_air_quality_data(self, cities: List[str]) -> Dict[str, Dict[str, Any]]:
-        """Get air quality data for multiple cities"""
+        """Get air quality data for multiple cities by first getting coordinates"""
         air_quality_data = {}
         current_time = time.time()
+        
+        # City coordinates dictionary (to avoid extra API calls)
+        city_coordinates = {
+            'Delhi': [28.6139, 77.2090],
+            'Mumbai': [19.0760, 72.8777],
+            'Chennai': [13.0827, 80.2707],
+            'Bangalore': [12.9716, 77.5946],
+            'Kolkata': [22.5726, 88.3639],
+            'Hyderabad': [17.3850, 78.4867]
+        }
         
         for city in cities:
             cache_key = f"aqi_{city}"
@@ -146,39 +156,66 @@ class WeatherAPI:
                 logger.info(f"Using cached AQI data for {city}")
                 air_quality_data[city] = self.cache[cache_key]['data']
                 continue
+            
+            try:
+                # Get coordinates for the city - either from our dictionary or by calling the weather API
+                if city in city_coordinates:
+                    lat, lon = city_coordinates[city]
+                    logger.info(f"Using stored coordinates for {city}: {lat}, {lon}")
+                else:
+                    # Get coordinates from weather API - we need to call the weather API first
+                    weather_params = {
+                        "q": city,
+                        "appid": self.api_key,
+                        "units": "metric"
+                    }
+                    weather_data = self._make_request_with_retry(f"{self.BASE_URL}weather", weather_params)
+                    if not weather_data:
+                        logger.error(f"Failed to retrieve coordinates for {city}")
+                        air_quality_data[city] = None
+                        continue
+                        
+                    lat = weather_data['coord']['lat']
+                    lon = weather_data['coord']['lon']
+                    logger.info(f"Retrieved coordinates for {city}: {lat}, {lon}")
                 
-            params = {
-                "q": city,
-                "appid": self.api_key
-            }
-            
-            data = self._make_request_with_retry(f"http://api.openweathermap.org/data/2.5/air_pollution", params)
-            
-            if data and 'list' in data and len(data['list']) > 0:
-                aqi_data = {
-                    "aqi": data['list'][0]['main']['aqi'],
-                    "components": {
-                        "co": data['list'][0]['components'].get('co', 0),
-                        "no2": data['list'][0]['components'].get('no2', 0),
-                        "o3": data['list'][0]['components'].get('o3', 0),
-                        "pm2_5": data['list'][0]['components'].get('pm2_5', 0),
-                        "pm10": data['list'][0]['components'].get('pm10', 0)
-                    },
-                    "dt": data['list'][0]['dt']
+                # Now make the air quality API call with coordinates
+                params = {
+                    "lat": lat,
+                    "lon": lon,
+                    "appid": self.api_key
                 }
                 
-                # Save to cache
-                self.cache[cache_key] = {
-                    'data': aqi_data,
-                    'timestamp': current_time
-                }
+                data = self._make_request_with_retry(f"{self.BASE_URL}air_pollution", params)
                 
-                air_quality_data[city] = aqi_data
-                logger.info(f"Successfully retrieved AQI data for {city}")
-            else:
-                logger.error(f"Failed to retrieve AQI data for {city}")
+                if data and 'list' in data and len(data['list']) > 0:
+                    aqi_data = {
+                        "aqi": data['list'][0]['main']['aqi'],
+                        "components": {
+                            "co": data['list'][0]['components'].get('co', 0),
+                            "no2": data['list'][0]['components'].get('no2', 0),
+                            "o3": data['list'][0]['components'].get('o3', 0),
+                            "pm2_5": data['list'][0]['components'].get('pm2_5', 0),
+                            "pm10": data['list'][0]['components'].get('pm10', 0)
+                        },
+                        "dt": data['list'][0]['dt']
+                    }
+                    
+                    # Save to cache
+                    self.cache[cache_key] = {
+                        'data': aqi_data,
+                        'timestamp': current_time
+                    }
+                    
+                    air_quality_data[city] = aqi_data
+                    logger.info(f"Successfully retrieved AQI data for {city}")
+                else:
+                    logger.error(f"Failed to retrieve AQI data for {city}")
+                    air_quality_data[city] = None
+            except Exception as e:
+                logger.error(f"Error retrieving AQI data for {city}: {str(e)}")
                 air_quality_data[city] = None
             
             time.sleep(1)  # To avoid hitting rate limits
-            
+        
         return air_quality_data

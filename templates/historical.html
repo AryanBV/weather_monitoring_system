@@ -11,22 +11,76 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
             padding: 20px; 
-            background-color: #f8f9fa; 
+            background-color: #f0f2f5; 
         }
         .header {
-            background-color: #0066cc;
+            background: linear-gradient(135deg, #0066cc, #004080);
             color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
         .chart-container {
             background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
             margin-bottom: 30px;
+        }
+        .back-btn {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #004d99;
+            color: white;
+        }
+        .btn-group {
+            display: flex;
+            gap: 5px;
+        }
+        .btn-outline-primary {
+            background-color: white;
+            color: #0066cc;
+            border: 1px solid #0066cc;
+            border-radius: 8px;
+            padding: 8px 15px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .btn-outline-primary:hover {
+            background-color: #0066cc;
+            color: white;
+        }
+        .chart-title {
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 10px;
+        }
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+        }
+        .alert-info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
         }
     </style>
 </head>
@@ -38,17 +92,50 @@
         </div>
         
         <div class="mb-3">
-            <a href="/" class="btn btn-primary">← Back to Dashboard</a>
+            <a href="/" class="back-btn" id="backToDashboard">← Back to Dashboard</a>
             
-            <div class="float-end">
-                <div class="btn-group" role="group">
-                    <a href="/historical/{{ city }}?days=3" class="btn btn-outline-primary">3 Days</a>
-                    <a href="/historical/{{ city }}?days=7" class="btn btn-outline-primary">7 Days</a>
-                    <a href="/historical/{{ city }}?days=14" class="btn btn-outline-primary">14 Days</a>
-                    <a href="/historical/{{ city }}?days=30" class="btn btn-outline-primary">30 Days</a>
+            <div style="float: right;">
+                <div class="btn-group">
+                    <a href="/historical/{{ city }}?days=3" class="btn-outline-primary">3 Days</a>
+                    <a href="/historical/{{ city }}?days=7" class="btn-outline-primary">7 Days</a>
+                    <a href="/historical/{{ city }}?days=14" class="btn-outline-primary">14 Days</a>
+                    <a href="/historical/{{ city }}?days=30" class="btn-outline-primary">30 Days</a>
                 </div>
             </div>
         </div>
+        
+        <!-- Add a loading indicator -->
+        <script>
+        document.getElementById('backToDashboard').addEventListener('click', function(e) {
+            this.innerHTML = '← Back to Dashboard <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+            this.style.pointerEvents = 'none';
+            this.style.opacity = '0.7';
+        });
+        </script>
+ 
+        <!-- Diagnostic information about data -->
+        {% if data_count == 0 %}
+        <div class="alert alert-warning">
+            <h4>No Historical Data Available</h4>
+            <p>There's no weather data for {{ city }} in the database for the past {{ days }} days.</p>
+            <p><strong>Possible reasons:</strong></p>
+            <ul>
+                <li>The data collection process hasn't been running long enough</li>
+                <li>There might be an issue with the database connection</li>
+                <li>The city name might not match what's in the database</li>
+            </ul>
+            <p><strong>Try:</strong></p>
+            <ul>
+                <li>Running the system for a longer time to collect more data</li>
+                <li>Running the demo script: <code>python run_demo.py</code></li>
+                <li>Selecting a different time period or city</li>
+            </ul>
+        </div>
+        {% else %}
+        <div class="alert alert-info">
+            Showing {{ data_count }} data points for {{ city }} over the last {{ days }} days.
+        </div>
+{% endif %}
         
         <!-- Temperature Chart -->
         <div class="chart-container">
