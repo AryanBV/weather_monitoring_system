@@ -1,10 +1,11 @@
 from dotenv import load_dotenv
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from src.data_processing.data_processor import DataProcessor
 from src.database.db_handler import DBHandler
 from src.utils.config_loader import load_config
 from src.ml.weather_predictor import WeatherPredictor
 from src.utils.logger import logger  # Add logger import
+from src.api.weather_api import WeatherAPI
 from datetime import datetime, timedelta
 import os
 import traceback
@@ -61,6 +62,15 @@ def dashboard():
         predictions = {}
         prediction_errors = {}
         
+        # Fetch AQI data for each city
+        aqi_data = {}
+        try:
+            weather_api = WeatherAPI(config['api_key'])
+            aqi_data = weather_api.get_air_quality_data(cities)
+        except Exception as e:
+            logger.error(f"Error fetching AQI data: {str(e)}")
+            aqi_data = {}
+        
         for city in cities:
             try:
                 city_data_list = db_handler.get_recent_weather_data(city, limit=1)
@@ -105,9 +115,44 @@ def dashboard():
                               latest_data=latest_data, 
                               predictions=predictions, 
                               prediction_errors=prediction_errors,
+                              aqi_data=aqi_data,
                               datetime=datetime)  # Pass datetime to the template
     except Exception as e:
         logger.error(f"Dashboard rendering error: {str(e)}")
+        logger.error(traceback.format_exc())
+        return f"An error occurred: {str(e)}", 500
+
+@app.route('/historical/<city>')
+def historical_data(city):
+    try:
+        days = int(request.args.get('days', 7))  # Default to 7 days
+        start_date = datetime.now() - timedelta(days=days)
+        
+        # Get historical data
+        historical_data = db_handler.get_historical_weather_data(city, days=days)
+        
+        # Process data for chart
+        dates = []
+        temps = []
+        humidity = []
+        wind = []
+        
+        for record in historical_data:
+            if 'timestamp' in record:
+                dates.append(record['timestamp'].strftime('%Y-%m-%d %H:%M'))
+                temps.append(record.get('temperature', 0))
+                humidity.append(record.get('humidity', 0))
+                wind.append(record.get('wind_speed', 0))
+        
+        return render_template('historical.html',
+                              city=city,
+                              dates=dates,
+                              temps=temps,
+                              humidity=humidity,
+                              wind=wind,
+                              days=days)
+    except Exception as e:
+        logger.error(f"Historical data error: {str(e)}")
         logger.error(traceback.format_exc())
         return f"An error occurred: {str(e)}", 500
 

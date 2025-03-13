@@ -1,5 +1,5 @@
 import requests
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 import time
 import random
 from src.utils.logger import logger
@@ -133,3 +133,52 @@ class WeatherAPI:
         """Clear the API cache"""
         self.cache = {}
         logger.info("API cache cleared")
+
+    def get_air_quality_data(self, cities: List[str]) -> Dict[str, Dict[str, Any]]:
+        """Get air quality data for multiple cities"""
+        air_quality_data = {}
+        current_time = time.time()
+        
+        for city in cities:
+            cache_key = f"aqi_{city}"
+            # Check cache first
+            if cache_key in self.cache and current_time - self.cache[cache_key]['timestamp'] < self.cache_expiry:
+                logger.info(f"Using cached AQI data for {city}")
+                air_quality_data[city] = self.cache[cache_key]['data']
+                continue
+                
+            params = {
+                "q": city,
+                "appid": self.api_key
+            }
+            
+            data = self._make_request_with_retry(f"http://api.openweathermap.org/data/2.5/air_pollution", params)
+            
+            if data and 'list' in data and len(data['list']) > 0:
+                aqi_data = {
+                    "aqi": data['list'][0]['main']['aqi'],
+                    "components": {
+                        "co": data['list'][0]['components'].get('co', 0),
+                        "no2": data['list'][0]['components'].get('no2', 0),
+                        "o3": data['list'][0]['components'].get('o3', 0),
+                        "pm2_5": data['list'][0]['components'].get('pm2_5', 0),
+                        "pm10": data['list'][0]['components'].get('pm10', 0)
+                    },
+                    "dt": data['list'][0]['dt']
+                }
+                
+                # Save to cache
+                self.cache[cache_key] = {
+                    'data': aqi_data,
+                    'timestamp': current_time
+                }
+                
+                air_quality_data[city] = aqi_data
+                logger.info(f"Successfully retrieved AQI data for {city}")
+            else:
+                logger.error(f"Failed to retrieve AQI data for {city}")
+                air_quality_data[city] = None
+            
+            time.sleep(1)  # To avoid hitting rate limits
+            
+        return air_quality_data
