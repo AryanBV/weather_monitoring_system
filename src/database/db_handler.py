@@ -13,6 +13,7 @@ class DBHandler:
         self.summary_collection = None
         self.forecast_collection = None
         self._connect()
+        
     def _connect(self, max_retries=3):
         """Establish connection to MongoDB with retry logic"""
         retries = 0
@@ -73,7 +74,6 @@ class DBHandler:
                 time.sleep(wait_time)
                 
         raise ConnectionError("Failed to connect to MongoDB after multiple attempts")
-    raise ConnectionError("Failed to connect to MongoDB after multiple attempts")
     
     def _ensure_connection(self):
         """Ensure an active MongoDB connection, reconnect if necessary"""
