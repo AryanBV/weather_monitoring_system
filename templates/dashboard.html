@@ -150,7 +150,11 @@
             <canvas id="humidityChart"></canvas>
         </div>
 
-        <p class="data-updated">Last data update: {{ latest_data.values()|list|first.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+        <p class="data-updated">Last data update: {{ 
+            latest_data.values()|selectattr('timestamp', 'defined')|list|first.timestamp.strftime('%Y-%m-%d %H:%M:%S') 
+            if (latest_data.values()|selectattr('timestamp', 'defined')|list) 
+            else datetime.now().strftime('%Y-%m-%d %H:%M:%S') 
+        }}</p>
     </div>
 
     <!-- Bootstrap & Chart.js Scripts -->
