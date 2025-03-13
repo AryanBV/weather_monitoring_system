@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from flask import Flask, render_template
 from src.data_processing.data_processor import DataProcessor
 from src.database.db_handler import DBHandler
@@ -5,6 +6,8 @@ from src.utils.config_loader import load_config
 from src.ml.weather_predictor import WeatherPredictor
 from datetime import datetime, timedelta
 import os
+
+load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__)
 
