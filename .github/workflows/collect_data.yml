@@ -1,0 +1,33 @@
+name: Collect Weather Data
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Runs every 6 hours
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  collect-data:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run data collection
+      env:
+        OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      run: |
+        # Run a short data collection cycle (2 minutes)
+        python -c "from run_demo import run_demo; run_demo(duration_minutes=2)"
+        
+    - name: Log data collection completion
+      run: echo "Data collection completed at $(date)"

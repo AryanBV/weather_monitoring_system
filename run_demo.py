@@ -4,6 +4,7 @@ import os
 from src.utils.logger import logger
 
 def run_demo(duration_minutes=5):
+    """Allow specifying a shorter duration for GitHub Actions runs"""
     logger.info(f"Starting Weather Monitoring System demo for {duration_minutes} minutes")
     
     try:

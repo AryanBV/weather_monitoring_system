@@ -21,6 +21,7 @@ ENV SMTP_USERNAME=""
 ENV SMTP_PASSWORD=""
 ENV ALERT_FROM_EMAIL=""
 ENV ALERT_TO_EMAILS=""
+ENV MONGODB_URI=""
 
 # Run the application
 CMD ["python", "main.py"]

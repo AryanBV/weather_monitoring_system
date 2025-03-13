@@ -2,7 +2,7 @@ name: Update Static Files and Run Tests
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Runs every 6 hours
+    - cron: '30 */6 * * *'  # Runs 30 minutes after data collection
   workflow_dispatch:  # Allows manual triggering
   push:
     branches: [ main ]
@@ -29,6 +29,7 @@ jobs:
     - name: Run tests
       env:
         OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
         TESTING: true
       run: |
         pytest --cov=src tests/
@@ -62,6 +63,7 @@ jobs:
     - name: Generate static files
       env:
         OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
       run: |
         python generate_static.py
     

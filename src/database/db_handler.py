@@ -1,6 +1,7 @@
 from pymongo import MongoClient, errors
 from datetime import datetime, timedelta
 import time
+import os
 from src.utils.logger import logger
 
 class DBHandler:
@@ -12,27 +13,47 @@ class DBHandler:
         self.summary_collection = None
         self.forecast_collection = None
         self._connect()
-        
     def _connect(self, max_retries=3):
         """Establish connection to MongoDB with retry logic"""
         retries = 0
         while retries < max_retries:
             try:
-                # Use connection pooling options
-                self.client = MongoClient(
-                    host=self.config['host'],
-                    port=self.config['port'],
-                    serverSelectionTimeoutMS=5000,  # 5 seconds timeout
-                    maxPoolSize=50,                # Connection pool size
-                    connectTimeoutMS=5000,         # Connection timeout
-                    retryWrites=True,              # Retry write operations
-                    w='majority'                   # Write concern
-                )
+                # Check for MongoDB URI in environment variables
+                mongodb_uri = os.environ.get('MONGODB_URI')
+                
+                if mongodb_uri:
+                    # Connect using MongoDB URI from environment
+                    self.client = MongoClient(mongodb_uri, 
+                                             serverSelectionTimeoutMS=5000,
+                                             maxPoolSize=50,
+                                             connectTimeoutMS=5000,
+                                             retryWrites=True,
+                                             w='majority')
+                    logger.info("Connecting to MongoDB using URI from environment")
+                else:
+                    # Fall back to connection using host and port
+                    self.client = MongoClient(
+                        host=self.config['host'],
+                        port=self.config['port'],
+                        serverSelectionTimeoutMS=5000,
+                        maxPoolSize=50,
+                        connectTimeoutMS=5000,
+                        retryWrites=True,
+                        w='majority'
+                    )
+                    logger.info("Connecting to MongoDB using host and port configuration")
                 
                 # Test the connection
                 self.client.admin.command('ping')
                 
-                self.db = self.client[self.config['name']]
+                # Get database from URI or use configured name
+                if mongodb_uri:
+                    # Extract database name from URI or use the configured name
+                    db_name = mongodb_uri.split('/')[-1].split('?')[0] or self.config['name']
+                    self.db = self.client[db_name]
+                else:
+                    self.db = self.client[self.config['name']]
+                    
                 self.weather_collection = self.db['weather_data']
                 self.summary_collection = self.db['daily_summaries']
                 self.forecast_collection = self.db['forecast_data']
@@ -52,6 +73,7 @@ class DBHandler:
                 time.sleep(wait_time)
                 
         raise ConnectionError("Failed to connect to MongoDB after multiple attempts")
+    raise ConnectionError("Failed to connect to MongoDB after multiple attempts")
     
     def _ensure_connection(self):
         """Ensure an active MongoDB connection, reconnect if necessary"""
