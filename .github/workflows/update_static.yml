@@ -28,8 +28,8 @@ jobs:
     
     - name: Prepare directories
       run: |
-        mkdir -p build htmlcov
-        touch .coverage  # Create empty coverage file
+        mkdir -p build static visualizations models htmlcov
+        touch .coverage
     
     - name: Run tests
       env:
@@ -37,7 +37,6 @@ jobs:
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
         TESTING: true
       run: |
-        # Temporarily skip tests that might fail
         echo "Skipping tests temporarily"
       continue-on-error: true
     
@@ -67,14 +66,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-        - name: Generate static files
-        env:
-          OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
-        run: |
-          mkdir -p build static visualizations models
-          python -u generate_static.py  # -u for unbuffered output to see logs
-        continue-on-error: false  # Fail the workflow if this fails
+    - name: Generate static files
+      env:
+        OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      run: |
+        mkdir -p build static visualizations models
+        python generate_static.py
     
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
