@@ -13,7 +13,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -35,7 +35,7 @@ jobs:
         pytest --cov=src tests/
     
     - name: Upload test results
-      uses: actions/upload-artifact@v3  # Updated from v2 to v3
+      uses: actions/upload-artifact@v4  # Updated from v3 to v4
       with:
         name: test-results
         path: |
@@ -48,7 +48,7 @@ jobs:
     needs: test
     if: github.event_name != 'pull_request'
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v4
