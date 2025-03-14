@@ -30,10 +30,10 @@ jobs:
         uses: actions/configure-pages@v3
         
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2  # v2 is still the latest version
+        uses: actions/upload-pages-artifact@v2
         with:
           path: '.'
           
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2  # v2 is still the latest version
+        uses: actions/deploy-pages@v2
