@@ -67,13 +67,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Generate static files
-      env:
-        OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
-        MONGODB_URI: ${{ secrets.MONGODB_URI }}
-      run: |
-        mkdir -p build
-        python generate_static.py
+        - name: Generate static files
+        env:
+          OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        run: |
+          mkdir -p build static visualizations models
+          python -u generate_static.py  # -u for unbuffered output to see logs
+        continue-on-error: false  # Fail the workflow if this fails
     
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
